@@ -60,7 +60,6 @@
   },
   "scripts": {
     "test": "gulp tests",
-    "package": "gulp package",
-    "postinstall": "mv "
+    "package": "gulp package"
   }
 }

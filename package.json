@@ -60,7 +60,7 @@
   },
   "scripts": {
     "test": "gulp tests",
-    "package": "gulp package",
-    "postinstall": "mv ./dist/* ./ && rmdir ./dist"
-  }
+    "package": "gulp package"
+  },
+  "main": "dist/"
 }
