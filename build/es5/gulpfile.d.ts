@@ -49,6 +49,7 @@ export declare class Gulpfile {
      * highlighting) and copy this README file into the package folder.
      */
     packageReadmeFile(): any;
+    moveToDist(): any;
     /**
      * Creates a package that can be published to npm.
      */

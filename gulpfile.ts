@@ -1,5 +1,5 @@
 import "es6-shim";
-import {Gulpclass, Task, SequenceTask, MergedTask} from "gulpclass";
+import { Gulpclass, Task, SequenceTask, MergedTask } from "gulpclass";
 
 const gulp = require("gulp");
 const del = require("del");
@@ -140,7 +140,7 @@ export class Gulpfile {
                 .pipe(gulp.dest("./build/package")),
         ];
     }
-    
+
     // -------------------------------------------------------------------------
     // Packaging and Publishing tasks
     // -------------------------------------------------------------------------
@@ -214,6 +214,11 @@ export class Gulpfile {
             .pipe(gulp.dest("./build/package"));
     }
 
+    @Task()
+    moveToDist() {
+        return gulp.src("./build/package/**/*").pipe(gulp.dest('dist'));
+    }
+
     /**
      * Creates a package that can be published to npm.
      */
@@ -227,7 +232,8 @@ export class Gulpfile {
             "packageCompile",
             "packageMoveCompiledFiles",
             "packageClearCompileDirectory",
-            ["packagePreparePackageFile", "packageReadmeFile"]
+            ["packagePreparePackageFile", "packageReadmeFile", "moveToDist"]
+
         ];
     }
 

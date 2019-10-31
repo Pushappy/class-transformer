@@ -188,6 +188,9 @@ var Gulpfile = /** @class */ (function () {
             .pipe(replace(/```typescript([\s\S]*?)```/g, "```javascript$1```"))
             .pipe(gulp.dest("./build/package"));
     };
+    Gulpfile.prototype.moveToDist = function () {
+        return gulp.src("./build/package/**/*").pipe(gulp.dest('dist'));
+    };
     /**
      * Creates a package that can be published to npm.
      */
@@ -200,7 +203,7 @@ var Gulpfile = /** @class */ (function () {
             "packageCompile",
             "packageMoveCompiledFiles",
             "packageClearCompileDirectory",
-            ["packagePreparePackageFile", "packageReadmeFile"]
+            ["packagePreparePackageFile", "packageReadmeFile", "moveToDist"]
         ];
     };
     /**
@@ -326,6 +329,12 @@ var Gulpfile = /** @class */ (function () {
         __metadata("design:paramtypes", []),
         __metadata("design:returntype", void 0)
     ], Gulpfile.prototype, "packageReadmeFile", null);
+    __decorate([
+        gulpclass_1.Task(),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], Gulpfile.prototype, "moveToDist", null);
     __decorate([
         gulpclass_1.SequenceTask(),
         __metadata("design:type", Function),
