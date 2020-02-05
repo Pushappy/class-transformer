@@ -61,5 +61,6 @@
   "scripts": {
     "test": "gulp tests",
     "package": "gulp package"
-  }
+  },
+  "main": "dist/"
 }

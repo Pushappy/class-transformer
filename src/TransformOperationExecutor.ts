@@ -250,7 +250,7 @@ export class TransformOperationExecutor {
                     if (newValue instanceof Map) {
                         newValue.set(newValueKey, finalValue);
                     } else {
-                        newValue[newValueKey] = finalValue ? finalValue : newValue[newValueKey];
+                        newValue[newValueKey] = finalValue || (typeof finalValue === "boolean") ? finalValue : newValue[newValueKey];
                     }
                 } else if (this.transformationType === TransformationType.CLASS_TO_CLASS) {
                     let finalValue = subValue;

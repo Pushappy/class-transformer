@@ -239,7 +239,7 @@ var TransformOperationExecutor = /** @class */ (function () {
                         newValue.set(newValueKey, finalValue);
                     }
                     else {
-                        newValue[newValueKey] = finalValue ? finalValue : newValue[newValueKey];
+                        newValue[newValueKey] = finalValue || (typeof finalValue === "boolean") ? finalValue : newValue[newValueKey];
                     }
                 }
                 else if (this_1.transformationType === TransformationType.CLASS_TO_CLASS) {
